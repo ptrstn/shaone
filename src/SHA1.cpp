@@ -20,8 +20,8 @@ SHA1::SHA1(const std::string &message) {
 
     uint64_t number=message.length() << 3; //length in bit
 
-    for(unsigned int i = 7; i >=0; i--) { //append length of original message to paddedMessage char wise
-        paddedMessage += (char) (number >> i * 8);
+    for(size_t i = 0; i < 8; i++) { //append length of original message to paddedMessage char wise
+        paddedMessage += (char) (number >> (7-i) * 8);
     }
 
     assert(paddedMessage.length() % 64 == 0);
@@ -37,9 +37,15 @@ SHA1::SHA1(const std::string &message) {
 
     MerkleDamgardConstruction merkle {mMessageBlocks[0]};
     for(size_t i = 1; i < mMessageBlocks.size(); i++){
-        merkle.update(mMessageBlocks[1]);
+        merkle.update(mMessageBlocks[i]);
     }
     std::cout << "SHA-1 Hash: " << merkle.sha1_hash() << std::endl;
+
+    mHash = merkle.sha1_hash();
     //merkle.print();
     //std::cout << "SHA-1 Hash:" << merkle.sha1_hash() << std::endl;
+}
+
+SHA1_Hash SHA1::hash() const {
+    return mHash;
 }

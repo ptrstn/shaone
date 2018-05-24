@@ -38,4 +38,3 @@ TEST_CASE("Stage"){
         REQUIRE(f == 1208501722);
     }
 }
-

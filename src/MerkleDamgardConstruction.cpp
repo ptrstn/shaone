@@ -105,6 +105,8 @@ MerkleDamgardConstruction& MerkleDamgardConstruction::update(const MessageBlock 
     mCurrentHash.D += mLastHash.D;
     mCurrentHash.E += mLastHash.E;
 
+    mLastHash = mCurrentHash;
+
     std::cout << std::dec << mCurrentHash.A << " " << mCurrentHash.B << " " << mCurrentHash.C << " " << mCurrentHash.D << " " << mCurrentHash.E << std::endl;
 
     return *this;

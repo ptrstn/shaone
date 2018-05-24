@@ -1,5 +1,6 @@
 #include <bitset>
 #include <sstream>
+#include <iomanip>
 #include "Word.h"
 
 Word::Word(unsigned int value): mValue(value) {}
@@ -28,7 +29,7 @@ Word Word::operator~() const {
 
 std::string Word::asHex() const {
     std::stringstream ss;
-    ss << std::hex << mValue;
+    ss << std::setfill('0') << std::setw(8) << std::hex << mValue;
     return ss.str();
 }
 
