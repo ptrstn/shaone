@@ -1,6 +1,7 @@
 # TODO-List
 
 - add DEBUG option for verbose output
+- make constexpr where applicable
 - add option to read from file
 - add command line options
     - choose between file and string literal
@@ -9,3 +10,4 @@
     - man page
 - add static code analysis
 - add different compilers (MSVC, Clang) versions to CI
+- create Doxygen documenation
