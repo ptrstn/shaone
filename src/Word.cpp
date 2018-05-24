@@ -16,10 +16,39 @@ std::uint32_t Word::value() const {
     return mValue;
 }
 
+Word Word::operator+=(const Word &other) {
+    mValue += other.mValue;
+    return *this;
+}
+
+Word Word::operator~() const {
+    return Word(~mValue);
+}
+
 std::ostream &operator<<(std::ostream &os, const Word &word) {
     return os << word.value();
 }
 
 Word operator+(const Word &a, const Word &b) {
     return Word{a.value() + b.value()};
+}
+
+Word operator&(const Word &a, const Word &b) {
+    return Word(a.value() & b.value());
+}
+
+Word operator|(const Word &a, const Word &b) {
+    return Word(a.value() | b.value());
+}
+
+Word operator^(const Word &a, const Word &b) {
+    return Word(a.value() ^ b.value());
+}
+
+bool operator==(const Word& lhs, const Word& rhs){
+    return lhs.value() == rhs.value();
+}
+
+bool operator==(const Word& lhs, uint32_t rhs){
+    return lhs.value() == rhs;
 }

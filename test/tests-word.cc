@@ -29,4 +29,21 @@ TEST_CASE("Word"){
     SECTION("rotateLeft"){
         REQUIRE(w1.rotateLeft(5).asBinary() == "11100000000000000000000101001001");
     }
+
+    SECTION("Bitwise AND"){
+        REQUIRE((w1 & w2).asBinary() == "01000000000000000000000000001000");
+    }
+
+    SECTION("Bitwise OR"){
+        REQUIRE((w1 | w2).asBinary() == "11101111000000000000000101001011");
+    }
+
+    SECTION("Bitwise XOR"){
+        REQUIRE((w1 ^ w2).asBinary() == "10101111000000000000000101000011");
+    }
+
+
+    SECTION("Bitwise NOT"){
+        REQUIRE((~w1).asBinary() == "10110000111111111111111111110101");
+    }
 }
