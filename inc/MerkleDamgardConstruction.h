@@ -1,5 +1,8 @@
 #pragma once
 
+#include "MessageSchedule.h"
+#include "SHA1_Hash.h"
+
 class MerkleDamgardConstruction{
 private:
     void processMessageBlock(); //4 stages á 20 rounds

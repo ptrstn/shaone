@@ -1,3 +1,3 @@
 #include "MessageBlock.h"
 
-MessageBlock::MessageBlock(const MessageBlock &message) : mMessage(message) {}
+MessageBlock::MessageBlock(const std::string &message) : mMessage(message) {}
