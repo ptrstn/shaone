@@ -6,7 +6,7 @@ add_compile_options(-Wall -Wextra -Wpedantic)
 
 include_directories(inc)
 
-set(SOURCE_FILES inc/Word.h src/Word.cpp)
+set(SOURCE_FILES inc/Word.h src/Word.cpp inc/SHA1_Hash.h src/SHA1_Hash.cpp inc/MessageSchedule.h src/MessageSchedule.cpp inc/MessageBlock.h src/MessageBlock.cpp)
 add_executable(shaone main.cc ${SOURCE_FILES})
 
 set(CATCH_INCLUDE_DIR test/catch)
