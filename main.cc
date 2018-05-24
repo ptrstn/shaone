@@ -1,11 +1,8 @@
 #include <iostream>
-#include <Stage.h>
-#include <bitset>
-#include <MerkleDamgardConstruction.h>
-#include <SHA1.h>
-#include "MessageBlock.h"
+#include "SHA1.h"
 
 int main() {
-    SHA1 s1{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12"};
+    SHA1 s{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"};
+    std::cout << s.hash() << std::endl;
     return 0;
 }
