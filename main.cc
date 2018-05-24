@@ -6,6 +6,6 @@
 #include "MessageBlock.h"
 
 int main() {
-    SHA1 sha1{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ12"};
+    SHA1 sha1{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789012"};
     return 0;
 }

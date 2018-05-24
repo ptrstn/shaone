@@ -65,7 +65,6 @@ MerkleDamgardConstruction& MerkleDamgardConstruction::nextRound() {
               << ", C=" << mCurrentHash.C
               << ", D=" << mCurrentHash.D
               << ", E=" << mCurrentHash.E
-              << ", W_j=" << Stage<1>::constant
               << std::endl;
     mRoundCounter++;
     return *this;
@@ -77,11 +76,15 @@ MerkleDamgardConstruction::MerkleDamgardConstruction(const MessageBlock& message
     for(int i = 0; i < 80; i++){
         MerkleDamgardConstruction::nextRound();
     }
-    mCurrentHash.A += 0x67452301;
-    mCurrentHash.B += 0xEFCDAB89;
-    mCurrentHash.C += 0x98BADCFE;
-    mCurrentHash.D += 0x10325476;
-    mCurrentHash.E += 0xC3D2E1F0;
+    mCurrentHash.A += mLastHash.A;
+    mCurrentHash.B += mLastHash.B;
+    mCurrentHash.C += mLastHash.C;
+    mCurrentHash.D += mLastHash.D;
+    mCurrentHash.E += mLastHash.E;
+
+    mLastHash = mCurrentHash;
+
+    std::cout << std::dec << mCurrentHash.A << " " << mCurrentHash.B << " " << mCurrentHash.C << " " << mCurrentHash.D << " " << mCurrentHash.E << std::endl;
 }
 
 SHA1_Hash MerkleDamgardConstruction::sha1_hash() const {
@@ -89,17 +92,20 @@ SHA1_Hash MerkleDamgardConstruction::sha1_hash() const {
 }
 
 MerkleDamgardConstruction& MerkleDamgardConstruction::update(const MessageBlock &messageBlock) {
-    assert(mRoundCounter==79);
+    assert(mRoundCounter==80 || mRoundCounter==0);
     mRoundCounter = 0;
     mMessageSchedule = MessageSchedule{messageBlock};
     for(int i = 0; i < 80; i++){
         MerkleDamgardConstruction::nextRound();
     }
-    mCurrentHash.A += 0x67452301;
-    mCurrentHash.B += 0xEFCDAB89;
-    mCurrentHash.C += 0x98BADCFE;
-    mCurrentHash.D += 0x10325476;
-    mCurrentHash.E += 0xC3D2E1F0;
+
+    mCurrentHash.A += mLastHash.A;
+    mCurrentHash.B += mLastHash.B;
+    mCurrentHash.C += mLastHash.C;
+    mCurrentHash.D += mLastHash.D;
+    mCurrentHash.E += mLastHash.E;
+
+    std::cout << std::dec << mCurrentHash.A << " " << mCurrentHash.B << " " << mCurrentHash.C << " " << mCurrentHash.D << " " << mCurrentHash.E << std::endl;
 
     return *this;
 }
