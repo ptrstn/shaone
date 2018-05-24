@@ -8,10 +8,9 @@
 
 class SHA1{
 public:
-    SHA1(std::string message); //split message in Message Blocks and feed into Merkle
-    SHA1_Hash hash() const;
+    explicit SHA1(const std::string& message); //split message in Message Blocks and feed into Merkle
+    //SHA1_Hash hash() const;
 private:
-    MerkleDamgardConstruction mMerkle;
-    std::vector<MessageBlock> messageBlocks;
-    std::string message;
+    std::vector<MessageBlock> mMessageBlocks;
+    std::string mOriginalMessage;
 };

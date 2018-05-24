@@ -15,7 +15,7 @@ add_library(Catch INTERFACE)
 target_include_directories(Catch INTERFACE ${CATCH_INCLUDE_DIR})
 
 enable_testing()
-set(TEST_SOURCES test/tests-main.cc test/tests-word.cc test/tests-stage.cc)
+set(TEST_SOURCES test/tests-main.cc test/tests-word.cc test/tests-stage.cc test/tests-messageblock.cc test/tests-messageschedule.cc)
 add_executable(tests ${TEST_SOURCES} ${SOURCE_FILES})
 target_link_libraries(tests Catch)
 add_test(Tester tests)

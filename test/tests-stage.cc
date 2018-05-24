@@ -20,8 +20,8 @@ TEST_CASE("Stage"){
 
     SECTION("Stage 1"){
         Word f = Stage<1>::f(b, c, d);
-        REQUIRE(f.asBinary() == "01000111000100000000000000001000");
-        REQUIRE(f == 1192230920);
+        REQUIRE(f.asBinary() == "11100000000010000100010010011001");
+        REQUIRE(f == 3758638233);
     }
 
     SECTION("Stage 2"){

@@ -13,7 +13,7 @@ template<>
 class Stage<1> {
 public:
     static Word f(Word b, Word c, Word d){
-        return (b & c)| (b & d);
+        return (b & c)| (~b & d);
     }
 
     static const uint32_t constant = 0x5A827999;
