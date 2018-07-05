@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/ptrstn/shaone.svg?branch=master)](https://travis-ci.com/ptrstn/shaone)
+[![Documentation](https://codedocs.xyz/ptrstn/shaone.svg)](https://codedocs.xyz/ptrstn/shaone/)
 # ShaOne
 
 A very simple implementation of the (broken) SHA-1 Hashing Algorithm in C++.
