@@ -1,0 +1,29 @@
+\href{https://travis-ci.com/ptrstn/shaone}{\tt } \href{https://codedocs.xyz/ptrstn/shaone/}{\tt } \section*{Sha\+One}
+
+A very simple implementation of the (broken) S\+H\+A-\/1 Hashing Algorithm in C++.
+
+This repository does not claim to be particularly efficient. It is used for educational purposes only.
+
+Do N\+OT use this in production as S\+H\+A-\/1 was broken by Google in 2017. See \href{https://shattered.io/}{\tt https\+://shattered.\+io/} for details.
+
+\subsection*{Example}
+
+
+\begin{DoxyCode}
+\{C++\}
+#include <iostream>
+#include "SHA1.h"
+
+int main() \{
+    SHA1 s\{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"\};
+    std::cout << s.hash() << std::endl;
+    return 0;
+\}
+\end{DoxyCode}
+
+
+Output\+: 
+\begin{DoxyCode}
+faa62a12e3969824a7daf66b62c939dc0324b6b8
+\end{DoxyCode}
+ 
